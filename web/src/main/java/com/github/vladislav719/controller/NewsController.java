@@ -13,18 +13,19 @@ import java.util.List;
  * Created by Владислав on 03.04.2015.
  */
 @RestController
-@RequestMapping("/news")
+@RequestMapping()
 public class NewsController {
 
     @Autowired
     private NewsService newsService;
+
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public  News getOneNews(@PathVariable Long id) {
        return newsService.getNewsById(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/admin/{id}", method = RequestMethod.DELETE)
     public Object deleteOneNews(@PathVariable Long id) {
         return newsService.deleteNews(id);
     }
