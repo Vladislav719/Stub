@@ -1,6 +1,7 @@
 package com.github.vladislav719.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -12,17 +13,43 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(generator="increment")
+    @Column(name = "user_id")
+    @GenericGenerator(name="increment", strategy = "increment")
+    private long userId;
 
     private String login;
+    private String email;
 
     @JsonIgnore
     private String password;
 
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name="teamId", nullable = false)
+//    private Team team;
 
-    public Long getId() {
-        return id;
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "user")
+    private UserInfo userInfo;
+
+    public User() {
+    }
+
+    public User(String login, String email, String password) {
+        this.login = login;
+        this.email = email;
+        this.password = password;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 
     public String getLogin() {
@@ -31,6 +58,14 @@ public class User {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

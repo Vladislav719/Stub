@@ -19494,10 +19494,13 @@
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
     <table name="users" schema="public" catalog="arena1" type="TABLE">
-      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndXNlcnNfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="userid" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndXNlcnNfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
       <column name="login" sqlType="varchar" precision="128" scale="0" nullable="false" jdbcType="12"/>
       <column name="password" sqlType="varchar" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="users_pkey" columns="id"/>
+      <column name="email" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="solopts" sqlType="int8" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="steamid" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="users_pkey" columns="userid"/>
       <index name="unique_login" unique="true" columns="login"/>
     </table>
     <table name="users_id_seq" schema="public" catalog="arena1" type="SEQUENCE">
