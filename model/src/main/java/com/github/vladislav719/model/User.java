@@ -1,6 +1,7 @@
 package com.github.vladislav719.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
  * Created by Владислав on 03.04.2015.
  */
 @Table(name = "USERS")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 public class User {
 

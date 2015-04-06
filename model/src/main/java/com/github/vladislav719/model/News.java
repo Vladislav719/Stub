@@ -1,5 +1,7 @@
 package com.github.vladislav719.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  */
 @Table(name = "NEWS")
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class News {
 
     @Id

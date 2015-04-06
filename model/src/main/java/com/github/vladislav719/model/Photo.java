@@ -1,5 +1,6 @@
 package com.github.vladislav719.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.sql.Date;
  * Created by Владислав on 05.04.2015.
  */
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Table(name = "photos")
 public class Photo {
 

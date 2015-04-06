@@ -1,5 +1,6 @@
 package com.github.vladislav719.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.GenericGenerator;
@@ -12,6 +13,7 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "user_info")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserInfo {
 
     @Id
@@ -42,7 +44,6 @@ public class UserInfo {
     @OneToOne
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "photo_id")
-    @Column(name = "user_photo")
     private Photo userPhoto;
 
     public UserInfo() {

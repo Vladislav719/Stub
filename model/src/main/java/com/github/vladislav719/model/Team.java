@@ -1,5 +1,6 @@
 package com.github.vladislav719.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.GenericGenerator;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "Teams")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Team {
 
     @Id
@@ -40,7 +42,6 @@ public class Team {
     )
     private List<Game> games;
 
-    @Column(name = "team_photo")
 
     @OneToOne
     @Fetch(FetchMode.JOIN)
