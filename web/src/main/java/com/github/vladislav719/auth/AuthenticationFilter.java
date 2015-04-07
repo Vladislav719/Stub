@@ -16,7 +16,6 @@ import org.springframework.security.web.authentication.preauth.PreAuthenticatedA
 import org.springframework.web.filter.GenericFilterBean;
 import org.springframework.web.util.UrlPathHelper;
 
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;

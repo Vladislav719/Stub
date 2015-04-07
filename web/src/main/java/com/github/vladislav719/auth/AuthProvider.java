@@ -13,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-
 import java.util.Arrays;
 
 
@@ -37,6 +36,7 @@ public class AuthProvider implements AuthenticationProvider {
             passwordObj = "";
         }
         String password = passwordObj.toString();
+        String passwordHash = decodePassword(password);
         String login = authentication.getName();
         if (password.isEmpty() || login == null || login.isEmpty()) {
             throw new BadCredentialsException("bad");
@@ -45,7 +45,7 @@ public class AuthProvider implements AuthenticationProvider {
         if (user == null) {
             throw new UsernameNotFoundException("User Not Found");
         }
-        if (user.getPassword().equals(password)) {
+        if (user.getPassword().equals(passwordHash)) {
             String newToken = tokenService.generateNewToken();
             AuthenticationWithToken authToken =
                     new AuthenticationWithToken(

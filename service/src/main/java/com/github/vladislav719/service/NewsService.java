@@ -2,8 +2,6 @@ package com.github.vladislav719.service;
 
 import com.github.vladislav719.model.News;
 
-import java.util.List;
-
 /**
  * Created by Владислав on 03.04.2015.
  */

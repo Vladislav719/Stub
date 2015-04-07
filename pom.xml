@@ -18,7 +18,7 @@
         <profile>
             <id>stub-vladislav</id>
             <properties>
-                <tomcat.home>D:\apache-tomcat-7.0.57\</tomcat.home>
+                <tomcat.home>E:\Soft\apache-tomcat-8.0.18\apache-tomcat-8.0.18</tomcat.home>
             </properties>
         </profile>
     </profiles>

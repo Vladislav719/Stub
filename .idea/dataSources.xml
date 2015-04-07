@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="708076232">
-    <data-source source="LOCAL" name="stub" uuid="93e3b4bf-02d0-4951-96d7-10a80b330463">
+  <component name="DataSourceManagerImpl" format="xml" hash="3224224274">
+    <data-source source="LOCAL" name="pidr" uuid="3005ec84-c5f8-4cd6-80cc-a3161f0e8938">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/stub</jdbc-url>
-      <libraries />
-    </data-source>
-    <data-source source="LOCAL" name="arena1" uuid="d10e8fb8-7daa-480e-b116-23a9c6f4fab0">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/arena1</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/base</jdbc-url>
       <libraries />
     </data-source>
   </component>

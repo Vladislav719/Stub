@@ -6,9 +6,6 @@ import com.github.vladislav719.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Created by Владислав on 03.04.2015.
  */

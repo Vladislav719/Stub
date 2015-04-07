@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping()
 public class LoginController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam String username, @RequestParam String password) {
-        //stub method; never used, only for swagger; saw AuthenticationFilter.java
-        return null;
-    }
+        @RequestMapping(value = "/login", method = RequestMethod.POST)
+        public String login(@RequestParam String username, @RequestParam String password) {
+            //stub method; never used, only for swagger; saw AuthenticationFilter.java
+            return null;
+        }
 }
