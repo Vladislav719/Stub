@@ -1,5 +1,6 @@
 package com.github.vladislav719.config;
 
+import com.github.vladislav719.config.filter.CORSFilter;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -37,7 +38,8 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         encodingFilter.setForceEncoding(true);
         return new Filter[]{
                 encodingFilter,
-                securityFilterChain
+                securityFilterChain,
+                new CORSFilter()
         };
     }
     @Override

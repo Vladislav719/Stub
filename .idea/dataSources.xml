@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4183878043">
+  <component name="DataSourceManagerImpl" format="xml" hash="2197768009">
     <data-source source="LOCAL" name="arena" uuid="d10e8fb8-7daa-480e-b116-23a9c6f4fab0">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
