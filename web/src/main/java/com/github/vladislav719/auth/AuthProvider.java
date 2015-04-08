@@ -38,6 +38,7 @@ public class AuthProvider implements AuthenticationProvider {
         }
         String password = passwordObj.toString();
         String login = authentication.getName();
+        String hashPassword = decodePassword(password);
         if (password.isEmpty() || login == null || login.isEmpty()) {
             throw new BadCredentialsException("bad");
         }
@@ -45,7 +46,7 @@ public class AuthProvider implements AuthenticationProvider {
         if (user == null) {
             throw new UsernameNotFoundException("User Not Found");
         }
-        if (user.getPassword().equals(password)) {
+        if (user.getPassword().equals(hashPassword)) {
             String newToken = tokenService.generateNewToken();
             AuthenticationWithToken authToken =
                     new AuthenticationWithToken(
