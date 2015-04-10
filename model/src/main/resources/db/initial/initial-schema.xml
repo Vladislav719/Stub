@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        logicalFilePath="initial-schema.xml"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+        
+    <changeSet id="1" author="dabdullin">
+        <createTable tableName="locations">
+            <column name="id" type="bigint" defaultValueSequenceNext="locations_seq">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LATITUDE" type="float"/>
+            <column name="LONGITUDE" type="float"/>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="2" author="dabdullin">
+        <createTable tableName="categories">
+            <column name="id" type="bigint" defaultValueSequenceNext="categories_seq">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="dabdullin">
+        <createTable tableName="faculties">
+            <column name="id" type="bigint" defaultValueSequenceNext="faculties_seq">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="4" author="dabdullin">
+        <createTable tableName="users">
+            <column name="id" type="bigint" defaultValueSequenceNext="users_seq">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="faculty_id" type="bigint">
+                <constraints foreignKeyName="users_faculty_fk"
+                             nullable="false"
+                             references="faculties(id)"/>
+            </column>
+            <column name="role" type="varchar(255)"/>
+        </createTable>
+        <addUniqueConstraint tableName="users" columnNames="name"/>
+    </changeSet>
+
+    <changeSet id="5" author="dabdullin">
+        <createTable tableName="complaints">
+            <column name="id" type="bigint" defaultValueSequenceNext="complaints_seq">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="owner_id" type="bigint">
+                <constraints foreignKeyName="complaints_users_fk"
+                             nullable="false"
+                             references="users(id)"/>
+            </column>
+            <column name="category_id" type="bigint">
+                <constraints foreignKeyName="complaints_categories_fk"
+                             nullable="false"
+                             references="categories(id)"/>
+            </column>
+            <column name="location_id" type="bigint">
+                <constraints foreignKeyName="complaints_locations_fk"
+                             nullable="false"
+                             references="locations(id)"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(400)"/>
+            <column name="photo" type="varchar(1000)"/>
+            <column name="date" type="date"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="6" author="dabdullin">
+        <createTable tableName="votes">
+            <column name="id" type="bigint" defaultValueSequenceNext="votes_seq">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints foreignKeyName="votes_users_fk"
+                             nullable="false"
+                             references="users(id)"/>
+            </column>
+            <column name="complaint_id" type="bigint">
+                <constraints foreignKeyName="votes_complaints_id"
+                             nullable="false"
+                             references="complaints(id)"/>
+            </column>
+            <column name="vote_date" type="date"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="7" author="dabdullin">
+        <createTable tableName="comments">
+            <column name="id" type="bigint" defaultValueSequenceNext="comments_seq">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="owner_id" type="bigint">
+                <constraints foreignKeyName="comments_users_fk"
+                             nullable="false"
+                             references="users(id)"/>
+            </column>
+            <column name="complaint_id" type="bigint">
+                <constraints foreignKeyName="comments_complaints_id"
+                             nullable="false"
+                             references="complaints(id)"/>
+            </column>
+            <column name="text" type="varchar(400)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="send_time" type="date"/>
+        </createTable>
+    </changeSet>
+
+    
+</databaseChangeLog>

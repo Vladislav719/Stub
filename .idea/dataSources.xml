@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2197768009">
+  <component name="DataSourceManagerImpl" format="xml" hash="2501483722">
     <data-source source="LOCAL" name="arena" uuid="d10e8fb8-7daa-480e-b116-23a9c6f4fab0">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/arena</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="arena [2]" uuid="4203f69c-8d63-4b03-829f-2161db36af94">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

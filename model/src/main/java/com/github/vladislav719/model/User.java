@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Владислав on 03.04.2015.
@@ -32,6 +33,9 @@ public class User {
 
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "user")
     private UserInfo userInfo;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Squad> squads;
 
     public User() {
     }
@@ -76,5 +80,17 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public Set<Squad> getSquads() {
+        return squads;
+    }
+
+    public void setSquads(Set<Squad> squads) {
+        this.squads = squads;
     }
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+        logicalFilePath="initial-data.xml">
+
+    <changeSet id="1.1" author="dabdullin" runOnChange="true">
+        <loadUpdateData tableName="locations"
+                        primaryKey="ID"
+                        file="db/initial/csv/Locations.csv"
+                        quotchar="'"/>
+
+    </changeSet>
+
+    <changeSet id="2.1" author="dabdullin" runOnChange="true">
+        <loadUpdateData tableName="faculties"
+                        primaryKey="ID"
+                        file="db/initial/csv/Faculties.csv"
+                        quotchar="'"/>
+
+    </changeSet>
+
+    <changeSet id="3.1" author="dabdullin" runOnChange="true">
+        <loadUpdateData tableName="users"
+                        primaryKey="ID"
+                        file="db/initial/csv/Users.csv"
+                        quotchar="'"/>
+    </changeSet>
+
+    <changeSet id="4.1" author="dabdullin" runOnChange="true">
+        <loadUpdateData tableName="categories"
+                        primaryKey="ID"
+                        file="db/initial/csv/Categories.csv"
+                        quotchar="'"/>
+    </changeSet>
+
+    <changeSet id="5.1" author="dabdullin" runOnChange="true">
+        <loadUpdateData tableName="complaints"
+                        primaryKey="ID"
+                        file="db/initial/csv/Complaints.csv"
+                        quotchar="'"/>
+    </changeSet>
+
+    <changeSet id="6.1" author="dabdullin" runOnChange="true">
+        <loadUpdateData tableName="votes"
+                        primaryKey="ID"
+                        file="db/initial/csv/Votes.csv"
+                        quotchar="'"/>
+    </changeSet>
+
+    <changeSet id="7.1" author="dabdullin" runOnChange="true">
+        <loadUpdateData tableName="comments"
+                        primaryKey="ID"
+                        file="db/initial/csv/Comments.csv"
+                        quotchar="'"/>
+    </changeSet>
+
+
+
+
+</databaseChangeLog>

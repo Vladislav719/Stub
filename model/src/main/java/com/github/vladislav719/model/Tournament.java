@@ -28,8 +28,8 @@ public class Tournament {
     @Column(name = "start_date")
     private Date startDate;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tournament")
-    private List<Game> games;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tournament")
+//    private List<Game> games;
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name="teamId", nullable = false, insertable = false, updatable = false)
@@ -58,13 +58,13 @@ public class Tournament {
         this.title = title;
     }
 
-    public List<Game> getGames() {
-        return games;
-    }
-
-    public void setGames(List<Game> games) {
-        this.games = games;
-    }
+//    public List<Game> getGames() {
+//        return games;
+//    }
+//
+//    public void setGames(List<Game> games) {
+//        this.games = games;
+//    }
 
     public String getName() {
         return title;

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="
+                       http://www.liquibase.org/xml/ns/dbchangelog
+                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="1.0" author="dabdullin">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="locations_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="locations_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+    <changeSet id="2.0" author="dabdullin">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="categories_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="categories_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+    <changeSet id="3.0" author="dabdullin">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="faculties_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="faculties_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+    <changeSet id="4.0" author="dabdullin">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="users_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="users_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+    <changeSet id="5.0" author="dabdullin">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="complaints_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="complaints_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+    <changeSet id="6.0" author="dabdullin">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="votes_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="votes_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+    <changeSet id="7.0" author="dabdullin">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="comments_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="comments_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+</databaseChangeLog>
