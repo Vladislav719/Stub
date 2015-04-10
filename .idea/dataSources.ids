@@ -20112,4 +20112,7 @@
       </prototype>
     </procedure>
   </data-source>
+  <data-source name="PostgreSQL - d7oh9hr72co0c4@ec2-54-197-250-40.compute-1.amazonaws.com" uuid="64b4cfbf-b523-4a4e-9b62-d8e8828df803">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
