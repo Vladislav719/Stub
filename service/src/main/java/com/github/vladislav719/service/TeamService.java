@@ -17,6 +17,8 @@ public interface TeamService {
      */
     public Team createTeam(TeamCreationForm teamCreationForm);
 
+    public Team findTeamByName(String name);
+
     /**
      *
      * @param teamId

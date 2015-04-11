@@ -21,7 +21,7 @@ public interface UserService {
 
     public UserInfo getUserInfo(Long userId);
 
-    public UserInfo updateUserInfo(UserInfoForm userInfoForm, Long userId);
+    public UserInfo updateUserInfo(UserInfoForm userInfoForm, UserInfo currentUserInfo);
 
     public Photo setUserPhoto(String relativeUrl, UserInfo currentUserInfo);
 

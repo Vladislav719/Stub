@@ -132,11 +132,4 @@ public class Team {
         this.squads = squads;
     }
 
-    public Long getTeam_score() {
-        return teamScore;
-    }
-
-    public void setTeam_score(Long team_score) {
-        this.teamScore = team_score;
-    }
 }

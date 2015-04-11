@@ -56,8 +56,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserInfo updateUserInfo(UserInfoForm userInfoForm, Long userId) {
-        return null;
+    public UserInfo updateUserInfo(UserInfoForm userInfoForm, UserInfo currentUserInfo) {
+        currentUserInfo.setUserPhoto(userInfoForm.getUserPhoto());
+        currentUserInfo.setFirstName(userInfoForm.getFirstName());
+        currentUserInfo.setBirthDate(userInfoForm.getBirthDate());
+        return userInfoRepository.save(currentUserInfo);
     }
 
     @Override

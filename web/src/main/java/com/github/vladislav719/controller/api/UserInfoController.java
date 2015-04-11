@@ -1,10 +1,12 @@
 package com.github.vladislav719.controller.api;
 
+import com.github.vladislav719.dto.UserInfoForm;
 import com.github.vladislav719.helper.http.errors.ResponseBuilder;
 import com.github.vladislav719.model.Photo;
 import com.github.vladislav719.model.User;
 import com.github.vladislav719.model.UserInfo;
 import com.github.vladislav719.service.PhotoService;
+import com.github.vladislav719.service.SecurityService;
 import com.github.vladislav719.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.sql.Date;
 import java.util.Calendar;
 
@@ -22,10 +25,13 @@ import java.util.Calendar;
  * Created by vladislav on 06.04.2015.
  */
 @RestController
-@RequestMapping
+@RequestMapping("api/")
 public class UserInfoController {
 
     private static final Logger log = LoggerFactory.getLogger(UserInfoController.class);
+
+    @Autowired
+    private SecurityService securityService;
 
     @Autowired
     private UserService userService;
@@ -33,7 +39,7 @@ public class UserInfoController {
     @Autowired
     private PhotoService photoService;
 
-    @RequestMapping(value = "/users/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "user/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody Object getUserInfo(@PathVariable Long userId) {
         log.info(" retrieving userId :  " + userId);
         UserInfo userInfo = userService.getUserInfo(userId);
@@ -48,5 +54,14 @@ public class UserInfoController {
 
         return ResponseBuilder.success(HttpStatus.OK, userInfo);
     }
+
+    @RequestMapping(value = "user/", method = RequestMethod.PUT)
+    public @ResponseBody Object updateUserInfo(@RequestBody UserInfoForm userInfoForm) {
+        User currentUser = securityService.getCurrentUser();
+        UserInfo userInfo = userService.updateUserInfo(userInfoForm, currentUser.getUserInfo());
+        return ResponseBuilder.success(HttpStatus.OK, userInfo);
+    }
+
+
 
 }
