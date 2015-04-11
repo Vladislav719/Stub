@@ -5,58 +5,62 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
         logicalFilePath="initial-data.xml">
 
-    <changeSet id="1.1" author="dabdullin" runOnChange="true">
-        <loadUpdateData tableName="locations"
-                        primaryKey="ID"
-                        file="db/initial/csv/Locations.csv"
+    <changeSet id="1.1" author="baimurzin" runOnChange="true">
+        <loadUpdateData tableName="photo"
+                        primaryKey="photo_id"
+                        file="db/initial/csv/Photo.csv"
                         quotchar="'"/>
 
     </changeSet>
 
-    <changeSet id="2.1" author="dabdullin" runOnChange="true">
-        <loadUpdateData tableName="faculties"
-                        primaryKey="ID"
-                        file="db/initial/csv/Faculties.csv"
+    <changeSet id="2.1" author="baimurzin" runOnChange="true">
+        <loadUpdateData tableName="tournaments"
+                        primaryKey="tournament_id"
+                        file="db/initial/csv/Tournament.csv"
                         quotchar="'"/>
 
     </changeSet>
 
-    <changeSet id="3.1" author="dabdullin" runOnChange="true">
+    <changeSet id="3.1" author="baimurzin" runOnChange="true">
         <loadUpdateData tableName="users"
-                        primaryKey="ID"
+                        primaryKey="user_id"
                         file="db/initial/csv/Users.csv"
                         quotchar="'"/>
     </changeSet>
 
-    <changeSet id="4.1" author="dabdullin" runOnChange="true">
-        <loadUpdateData tableName="categories"
-                        primaryKey="ID"
-                        file="db/initial/csv/Categories.csv"
+    <changeSet id="4.1" author="baimurzin" runOnChange="true">
+        <loadUpdateData tableName="user_info"
+                        primaryKey="user_info_id"
+                        file="db/initial/csv/UserInfo.csv"
                         quotchar="'"/>
     </changeSet>
 
-    <changeSet id="5.1" author="dabdullin" runOnChange="true">
-        <loadUpdateData tableName="complaints"
-                        primaryKey="ID"
-                        file="db/initial/csv/Complaints.csv"
+    <changeSet id="5.1" author="baimurzin" runOnChange="true">
+        <loadUpdateData tableName="teams"
+                        primaryKey="team_id"
+                        file="db/initial/csv/Team.csv"
                         quotchar="'"/>
     </changeSet>
 
-    <changeSet id="6.1" author="dabdullin" runOnChange="true">
-        <loadUpdateData tableName="votes"
-                        primaryKey="ID"
-                        file="db/initial/csv/Votes.csv"
+    <changeSet id="6.1" author="baimurzin" runOnChange="true">
+        <loadUpdateData tableName="squads"
+                        primaryKey="squad_id"
+                        file="db/initial/csv/Squad.csv"
                         quotchar="'"/>
     </changeSet>
 
-    <changeSet id="7.1" author="dabdullin" runOnChange="true">
-        <loadUpdateData tableName="comments"
-                        primaryKey="ID"
-                        file="db/initial/csv/Comments.csv"
+    <changeSet id="7.1" author="baimurzin" runOnChange="true">
+        <loadUpdateData tableName="matches"
+                        primaryKey="match_id"
+                        file="db/initial/csv/Match.csv"
                         quotchar="'"/>
     </changeSet>
 
-
-
+    <changeSet id="8.1" author="baimurzin">
+        <loadUpdateData tableName="match_sheet"
+                        primaryKey="match_sheet_id"
+                        file="db/initial/csv/MatchSheet.csv"
+                        quotchar="'"/>
+    </changeSet>
 
 </databaseChangeLog>

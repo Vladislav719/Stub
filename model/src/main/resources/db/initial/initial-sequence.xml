@@ -5,34 +5,25 @@
                        http://www.liquibase.org/xml/ns/dbchangelog
                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-    <changeSet id="1.0" author="dabdullin">
+    <changeSet id="1.0" author="baimurzin">
         <preConditions onFail="MARK_RAN">
             <not>
-                <sequenceExists sequenceName="locations_seq"/>
+                <sequenceExists sequenceName="photo_seq"/>
             </not>
         </preConditions>
-        <createSequence sequenceName="locations_seq" startValue="${sequence.start}"/>
+        <createSequence sequenceName="photo_seq" startValue="${sequence.start}"/>
     </changeSet>
 
-    <changeSet id="2.0" author="dabdullin">
+    <changeSet id="2.0" author="baimurzin">
         <preConditions onFail="MARK_RAN">
             <not>
-                <sequenceExists sequenceName="categories_seq"/>
+                <sequenceExists sequenceName="tournaments_seq"/>
             </not>
         </preConditions>
-        <createSequence sequenceName="categories_seq" startValue="${sequence.start}"/>
+        <createSequence sequenceName="tournaments_seq" startValue="${sequence.start}"/>
     </changeSet>
 
-    <changeSet id="3.0" author="dabdullin">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <sequenceExists sequenceName="faculties_seq"/>
-            </not>
-        </preConditions>
-        <createSequence sequenceName="faculties_seq" startValue="${sequence.start}"/>
-    </changeSet>
-
-    <changeSet id="4.0" author="dabdullin">
+    <changeSet id="3.0" author="baimurzin">
         <preConditions onFail="MARK_RAN">
             <not>
                 <sequenceExists sequenceName="users_seq"/>
@@ -41,31 +32,49 @@
         <createSequence sequenceName="users_seq" startValue="${sequence.start}"/>
     </changeSet>
 
-    <changeSet id="5.0" author="dabdullin">
+    <changeSet id="4.0" author="baimurzin">
         <preConditions onFail="MARK_RAN">
             <not>
-                <sequenceExists sequenceName="complaints_seq"/>
+                <sequenceExists sequenceName="user_info_seq"/>
             </not>
         </preConditions>
-        <createSequence sequenceName="complaints_seq" startValue="${sequence.start}"/>
+        <createSequence sequenceName="user_info_seq" startValue="${sequence.start}"/>
     </changeSet>
 
-    <changeSet id="6.0" author="dabdullin">
+    <changeSet id="5.0" author="baimurzin">
         <preConditions onFail="MARK_RAN">
             <not>
-                <sequenceExists sequenceName="votes_seq"/>
+                <sequenceExists sequenceName="teams_seq"/>
             </not>
         </preConditions>
-        <createSequence sequenceName="votes_seq" startValue="${sequence.start}"/>
+        <createSequence sequenceName="teams_seq" startValue="${sequence.start}"/>
     </changeSet>
 
-    <changeSet id="7.0" author="dabdullin">
+    <changeSet id="6.0" author="baimurzin">
         <preConditions onFail="MARK_RAN">
             <not>
-                <sequenceExists sequenceName="comments_seq"/>
+                <sequenceExists sequenceName="squads_seq"/>
             </not>
         </preConditions>
-        <createSequence sequenceName="comments_seq" startValue="${sequence.start}"/>
+        <createSequence sequenceName="squads_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+    <changeSet id="7.0" author="baimurzin">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="matches_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="matches_seq" startValue="${sequence.start}"/>
+    </changeSet>
+
+    <changeSet id="8.0" author="baimurzin">
+        <preConditions>
+            <not>
+                <sequenceExists sequenceName="match_sheet_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="match_sheet_seq" startValue="${sequence.start}"/>
     </changeSet>
 
 </databaseChangeLog>

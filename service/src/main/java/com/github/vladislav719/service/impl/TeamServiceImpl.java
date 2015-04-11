@@ -31,7 +31,6 @@ public class TeamServiceImpl implements TeamService {
     public Team createTeam(TeamCreationForm teamCreationForm) {
         Team team = new Team();
         User user = securityService.getCurrentUser();
-        team.setOwner(user);
         team.setTeam_score(DEFAULT_START_TEAM_SCORE_POINTS);
         team.setTeamName(teamCreationForm.getTeamName());
         return teamRepository.save(team);

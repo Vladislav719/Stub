@@ -26,9 +26,9 @@ public class Team {
     @Column(name = "team_name")
     private String teamName;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="userId")
-    private User owner;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name="user_id")
+//    private User owner;
 
 //    @OneToMany(fetch = FetchType.EAGER, mappedBy = "team", cascade = CascadeType.ALL)
 //    private List<User> members;
@@ -103,13 +103,13 @@ public class Team {
         this.teamName = teamName;
     }
 
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
+//    public User getOwner() {
+//        return owner;
+//    }
+//
+//    public void setOwner(User owner) {
+//        this.owner = owner;
+//    }
 
 //    public List<User> getMembers() {
 //        return members;

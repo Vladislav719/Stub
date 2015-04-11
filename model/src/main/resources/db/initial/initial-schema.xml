@@ -5,129 +5,103 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
         
-    <changeSet id="1" author="dabdullin">
-        <createTable tableName="locations">
-            <column name="id" type="bigint" defaultValueSequenceNext="locations_seq">
+    <changeSet id="1" author="baimurzin">
+        <createTable tableName="photo">
+            <column name="photo_id" type="bigint" defaultValueSequenceNext="photo_seq">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="photo_path" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="LATITUDE" type="float"/>
-            <column name="LONGITUDE" type="float"/>
+            <column name="upload_date" type="date"/>
         </createTable>
     </changeSet>
     
-    <changeSet id="2" author="dabdullin">
-        <createTable tableName="categories">
-            <column name="id" type="bigint" defaultValueSequenceNext="categories_seq">
+    <changeSet id="2" author="baimurzin">
+        <createTable tableName="tournaments">
+            <column name="tournament_id" type="bigint" defaultValueSequenceNext="tournaments_seq">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
+            <column name="description" type="varchar(255)"/>
+            <column name="start_date" type="date"/>
+            <column name="title" type="varchar(255)"/>
         </createTable>
     </changeSet>
 
-    <changeSet id="3" author="dabdullin">
-        <createTable tableName="faculties">
-            <column name="id" type="bigint" defaultValueSequenceNext="faculties_seq">
+    <changeSet id="3" author="baimurzin">
+        <createTable tableName="users">
+            <column name="user_id" type="bigint" defaultValueSequenceNext="users_seq">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="email" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-        </createTable>
-    </changeSet>
-    
-    <changeSet id="4" author="dabdullin">
-        <createTable tableName="users">
-            <column name="id" type="bigint" defaultValueSequenceNext="users_seq">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="name" type="varchar(255)">
+            <column name="login" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="password" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="faculty_id" type="bigint">
-                <constraints foreignKeyName="users_faculty_fk"
-                             nullable="false"
-                             references="faculties(id)"/>
-            </column>
-            <column name="role" type="varchar(255)"/>
         </createTable>
-        <addUniqueConstraint tableName="users" columnNames="name"/>
     </changeSet>
-
-    <changeSet id="5" author="dabdullin">
-        <createTable tableName="complaints">
-            <column name="id" type="bigint" defaultValueSequenceNext="complaints_seq">
+    
+    <changeSet id="4" author="baimurzin">
+        <createTable tableName="user_info">
+            <column name="user_info_id" type="bigint" defaultValueSequenceNext="user_info_seq">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="owner_id" type="bigint">
-                <constraints foreignKeyName="complaints_users_fk"
-                             nullable="false"
-                             references="users(id)"/>
+            <column name="birth_date" type="date"/>
+            <column name="user_id" type="bigint"/>
+            <column name="first_name" type="varchar(255)"/>
+            <column name="photo_id" type="bigint"/>
+            <column name="steam_id" type="varchar(255)"/>
+            <column name="solo_points" type="bigint"/>
+        </createTable>
+        <!--<addUniqueConstraint tableName="users" columnNames="name"/>-->
+    </changeSet>
+
+    <changeSet id="5" author="baimurzin">
+        <createTable tableName="teams">
+            <column name="team_id" type="bigint" defaultValueSequenceNext="teams_seq">
+                <constraints primaryKey="true"/>
             </column>
-            <column name="category_id" type="bigint">
-                <constraints foreignKeyName="complaints_categories_fk"
-                             nullable="false"
-                             references="categories(id)"/>
-            </column>
-            <column name="location_id" type="bigint">
-                <constraints foreignKeyName="complaints_locations_fk"
-                             nullable="false"
-                             references="locations(id)"/>
-            </column>
-            <column name="title" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="description" type="varchar(400)"/>
-            <column name="photo" type="varchar(1000)"/>
-            <column name="date" type="date"/>
+            <column name="team_name" type="varchar(255)"/>
+            <column name="team_score" type="bigint"/>
+            <column name="user_id" type="bigint"/>
+            <column name="photo_id" type="varchar(255)"/>
         </createTable>
     </changeSet>
 
-    <changeSet id="6" author="dabdullin">
-        <createTable tableName="votes">
-            <column name="id" type="bigint" defaultValueSequenceNext="votes_seq">
+    <changeSet id="6" author="baimurzin">
+        <createTable tableName="squads">
+            <column name="squad_id" type="bigint" defaultValueSequenceNext="squads_seq">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="user_id" type="bigint">
-                <constraints foreignKeyName="votes_users_fk"
-                             nullable="false"
-                             references="users(id)"/>
-            </column>
-            <column name="complaint_id" type="bigint">
-                <constraints foreignKeyName="votes_complaints_id"
-                             nullable="false"
-                             references="complaints(id)"/>
-            </column>
-            <column name="vote_date" type="date"/>
+            <column name="is_leader" type="bool"/>
+            <column name="register_date" type="date"/>
+            <column name="team_id" type="bigint"/>
+            <column name="user_id" type="bigint"/>
         </createTable>
     </changeSet>
 
-    <changeSet id="7" author="dabdullin">
-        <createTable tableName="comments">
-            <column name="id" type="bigint" defaultValueSequenceNext="comments_seq">
+    <changeSet id="7" author="baimurzin">
+        <createTable tableName="matches">
+            <column name="match_id" type="bigint" defaultValueSequenceNext="matches_seq">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="owner_id" type="bigint">
-                <constraints foreignKeyName="comments_users_fk"
-                             nullable="false"
-                             references="users(id)"/>
+            <column name="match_date" type="date"/>
+            <column name="tournament_id" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="8" author="baimurzin">
+        <createTable tableName="match_sheet">
+            <column name="match_sheet_id" type="bigint" defaultValueSequenceNext="match_sheet_seq">
+                <constraints primaryKey="true"/>
             </column>
-            <column name="complaint_id" type="bigint">
-                <constraints foreignKeyName="comments_complaints_id"
-                             nullable="false"
-                             references="complaints(id)"/>
-            </column>
-            <column name="text" type="varchar(400)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="send_time" type="date"/>
+            <column name="is_winner" type="bool"/>
+            <column name="match_id" type="bigint"/>
+            <column name="team_id" type="bigint"/>
         </createTable>
     </changeSet>
 
